@@ -6,3 +6,8 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set("n", "<leader>gp", "<CMD>Gitsigns preview_hunk<CR>")
 vim.keymap.set("n", "<leader>gb", "<CMD>Git blame<CR>")
 vim.keymap.set("n", "<leader>gB", "<CMD>Gitsigns toggle_current_line_blame<CR>")
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+vim.keymap.set("x", "<leader>p", "\"_dP")
