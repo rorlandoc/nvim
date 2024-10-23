@@ -4,7 +4,7 @@ return {
         { "williamboman/mason.nvim", config = true },
         "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
-        { "j-hui/fidget.nvim", opts = {} },
+        { "j-hui/fidget.nvim",       opts = {} },
         "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
@@ -26,7 +26,7 @@ return {
                 map("<leader>ds", telescope.lsp_document_symbols, "Document symbols")
                 map("<leader>ws", telescope.lsp_dynamic_workspace_symbols, "Workspace symbols")
                 map("<leader>rn", vim.lsp.buf.rename, "Rename")
-                map("<leader>ca", vim.lsp.buf.code_action, "Code action", {"n", "x"})
+                map("<leader>ca", vim.lsp.buf.code_action, "Code action", { "n", "x" })
 
                 local client = vim.lsp.get_client_by_id(event.data.client_id)
                 if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
