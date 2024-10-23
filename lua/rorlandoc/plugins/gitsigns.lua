@@ -10,5 +10,6 @@ return {
             untracked    = { text = "┆" },
         },
         signcolumn = true,
+        attach_to_untracked = true,
     },
 }
