@@ -18,5 +18,8 @@ return {
             },
             highlights = require("catppuccin.groups.integrations.bufferline").get(),
         })
+
+        local f = function(args) vim.b[args.buf].ministatusline_disable = true end
+        vim.api.nvim_create_autocmd('Filetype', { pattern = 'NvimTree', callback = f })
     end,
 }
