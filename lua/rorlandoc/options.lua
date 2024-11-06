@@ -41,3 +41,7 @@ if vim.fn.has("win32") then
         vim.opt[option] = value
     end
 end
+
+if vim.g.neovide then
+    vim.o.guifont = "FiraCode Nerd Font:h14"
+end
