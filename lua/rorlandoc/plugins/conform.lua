@@ -4,7 +4,7 @@ return {
     cmd = { "ConformInfo" },
     keys = {
         {
-            "<leader>f",
+            "<leader>bf",
             function()
                 require("conform").format { async = true, lsp_format = "fallback" }
             end,
@@ -15,20 +15,15 @@ return {
     opts = {
         notify_on_error = false,
         format_on_save = function(bufnr)
-            local disable_filetypes = { c = true, cpp = true }
-            local lsp_format_opt
-            if disable_filetypes[vim.bo[bufnr].filetype] then
-              lsp_format_opt = 'never'
-            else
-              lsp_format_opt = 'fallback'
+            if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+                return
             end
-            return {
-              timeout_ms = 500,
-              lsp_format = lsp_format_opt,
-            }
+            return { timeout_ms = 500, lsp_format = "fallback" }
         end,
         formatter_by_ft = {
             lua = { "stylua" },
+            c = { "clang-format" },
+            cpp = { "clang-format" },
         },
     },
 }
